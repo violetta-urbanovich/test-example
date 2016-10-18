@@ -1,0 +1,14 @@
+{
+  "name": "angularjs-some-realization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladislav Sharikov <sharikov.vladislav@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
