@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="jumbotron">
+        <form class="form-horizontal" name="formClient" ng-submit="onSubmit();">
+            <h2 translate>PERSONAL_INFORMATION_LABEL</h2>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Имя</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="model.customer.name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Класс</label>
+                <div class="col-sm-10">
+                    <select ng-model="model.customer.class"
+                            ng-options="option.name for option in model.data.dictionaries.classes track by option.classId"
+                            class="form-control">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Тип</label>
+                <div class="col-sm-10">
+                    <select ng-model="model.customer.type"
+                            ng-options="option.name for option in model.data.dictionaries.types track by option.typeId"
+                            class="form-control">
+                    </select>
+                </div>
+            </div>
+            <div ng-if="model.customer.juralTypeId == 1">
+                <h2>Дополнительные атрибуты</h2>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Дата рождения</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.customer.birthDate" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div ng-if="model.customer.juralTypeId == 2">
+                <h2>Атрибуты юр. лица</h2>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">ОГРН</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.customer.juralAttributes.OGRN" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">ИНН</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.customer.juralAttributes.INN" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">КПП</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.customer.juralAttributes.KPP" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">ОКПО</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.customer.juralAttributes.OKPO" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <h2>Контакты</h2>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Телефон</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="model.customer.contacts.phone" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">E-mail</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="model.customer.contacts.email" class="form-control">
+                </div>
+            </div>
+            <h3>Привелегии</h3>
+            <h4 ng-repeat="item in model.data.privilege | byJuralType:model.customer.juralTypeId">{{item.name}}</h4>
+
+            <h3>Проверка введённых данных</h3>
+            <pre>{{model.customer | json}}</pre>
+
+            <input type="submit" value="Сохранить"/>
+        </form>
+        <div>
+        </div>
+    </div>
+
+</div>

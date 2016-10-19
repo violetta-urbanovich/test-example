@@ -4,11 +4,16 @@
   "description": "",
   "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "author": "Vladislav Sharikov <sharikov.vladislav@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "bower": "^1.7.9"
+    "angular-mocks": "^1.5.8",
+    "bower": "^1.7.9",
+    "jasmine": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2"	
   }
 }
